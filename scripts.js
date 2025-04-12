@@ -52,6 +52,7 @@ resetBtn.addEventListener("click", () => {
   const cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.style.backgroundColor = "white";
+    cell.style.opacity = 1;
   });
 });
 
