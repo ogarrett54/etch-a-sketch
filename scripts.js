@@ -13,8 +13,13 @@ function createGrid(dimension) {
       cell.style.height = String(640 / dimension) + "px";
       cell.style.width = String(640 / dimension) + "px";
       row.appendChild(cell);
-      cell.addEventListener("mouseover", () => {
+      cell.addEventListener("mousedown", () => {
         cell.style.backgroundColor = "black";
+      });
+      cell.addEventListener("mouseover", (e) => {
+        if (e.buttons === 1) {
+          cell.style.backgroundColor = "black";
+        }
       });
     }
     container.appendChild(row);
