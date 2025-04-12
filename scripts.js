@@ -1,8 +1,22 @@
 const container = document.querySelector(".container");
 
-for (let i = 0; i < 16 * 16; i++) {
-  const cell = document.createElement("div");
-  cell.className = "cell";
-  container.appendChild(cell);
-  console.log(i);
+function createGrid(dimension) {
+  for (let i = 0; i < dimension; i++) {
+    const row = document.createElement("div");
+    row.className = "row";
+    for (let j = 0; j < dimension; j++) {
+      const cell = document.createElement("div");
+      cell.className = "cell";
+      cell.style.height = String(640 / dimension) + "px";
+      cell.style.width = String(640 / dimension) + "px";
+      row.appendChild(cell);
+      cell.addEventListener("mouseover", () => {
+        cell.style.backgroundColor = "black";
+      });
+    }
+    container.appendChild(row);
+  }
 }
+
+// Set up a default 16x16 grid
+createGrid(16);

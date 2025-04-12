@@ -1,22 +1,27 @@
-body {
+* {
     box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
 }
 
 .container {
     display: flex;
     border: 4px solid black;
     flex-wrap: wrap;
-    width: 502px;
-    height: auto;
+    width: 648px;
+    height: 648px;
+}
+
+.row {
+    display: flex;
 }
 
 .cell {
     border: 1px dotted black;
-    height: 30px;
-    width: 30px;
-    flex: 0 0 auto;
-}
-
-.cell:hover {
-
+    height: 40px;
+    width: 40px;
+    flex: 1 1 auto;
 }
