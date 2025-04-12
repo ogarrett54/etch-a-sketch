@@ -1,5 +1,7 @@
 const container = document.querySelector(".container");
 const resetBtn = document.querySelector("#reset");
+const dimensionInput = document.querySelector("#dimension-input");
+const submitBtn = document.querySelector("#submit");
 
 function createGrid(dimension) {
   for (let i = 0; i < dimension; i++) {
@@ -19,11 +21,23 @@ function createGrid(dimension) {
   }
 }
 
+function clearGrid() {
+  container.innerHTML = "";
+}
+
 resetBtn.addEventListener("click", () => {
   const cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.style.backgroundColor = "white";
   });
+});
+
+submitBtn.addEventListener("click", () => {
+  const inputDimensions = dimensionInput.value;
+  console.log(inputDimensions);
+  clearGrid();
+  createGrid(Number(inputDimensions));
+  dimensionInput.value = "";
 });
 
 // Set up a default 16x16 grid
