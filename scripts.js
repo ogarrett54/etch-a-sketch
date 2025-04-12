@@ -20,13 +20,23 @@ function createGrid(dimension) {
       cell.className = "cell";
       cell.style.height = String(640 / dimension) + "px";
       cell.style.width = String(640 / dimension) + "px";
+      cell.style.backgroundColor = "white";
+      cell.style.opacity = 1;
       row.appendChild(cell);
       cell.addEventListener("mousedown", () => {
-        cell.style.backgroundColor = chooseRandomColor();
+        if (cell.style.backgroundColor !== "white") {
+          cell.style.opacity = Number(cell.style.opacity) * 0.9;
+        } else {
+          cell.style.backgroundColor = chooseRandomColor();
+        }
       });
       cell.addEventListener("mouseover", (e) => {
         if (e.buttons === 1) {
-          cell.style.backgroundColor = chooseRandomColor();
+          if (cell.style.backgroundColor !== "white") {
+            cell.style.opacity = Number(cell.style.opacity) * 0.9;
+          } else {
+            cell.style.backgroundColor = chooseRandomColor();
+          }
         }
       });
     }

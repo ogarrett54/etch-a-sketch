@@ -13,6 +13,7 @@ body {
     flex-wrap: wrap;
     width: 648px;
     height: 648px;
+    background-color: black;
 }
 
 .row {
