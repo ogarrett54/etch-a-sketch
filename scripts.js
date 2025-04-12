@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+const resetBtn = document.querySelector("#reset");
 
 function createGrid(dimension) {
   for (let i = 0; i < dimension; i++) {
@@ -17,6 +18,13 @@ function createGrid(dimension) {
     container.appendChild(row);
   }
 }
+
+resetBtn.addEventListener("click", () => {
+  const cells = document.querySelectorAll(".cell");
+  cells.forEach((cell) => {
+    cell.style.backgroundColor = "white";
+  });
+});
 
 // Set up a default 16x16 grid
 createGrid(16);
