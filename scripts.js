@@ -3,6 +3,14 @@ const resetBtn = document.querySelector("#reset");
 const dimensionInput = document.querySelector("#dimension-input");
 const submitBtn = document.querySelector("#submit");
 
+function chooseRandomColor() {
+  const R = 255 * Math.random();
+  const G = 255 * Math.random();
+  const B = 255 * Math.random();
+
+  return `rgb(${R}, ${G}, ${B})`;
+}
+
 function createGrid(dimension) {
   for (let i = 0; i < dimension; i++) {
     const row = document.createElement("div");
@@ -14,11 +22,11 @@ function createGrid(dimension) {
       cell.style.width = String(640 / dimension) + "px";
       row.appendChild(cell);
       cell.addEventListener("mousedown", () => {
-        cell.style.backgroundColor = "black";
+        cell.style.backgroundColor = chooseRandomColor();
       });
       cell.addEventListener("mouseover", (e) => {
         if (e.buttons === 1) {
-          cell.style.backgroundColor = "black";
+          cell.style.backgroundColor = chooseRandomColor();
         }
       });
     }
